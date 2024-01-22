@@ -21,6 +21,7 @@ public class TwinStickMovement : MonoBehaviour
     [SerializeField] private GameObject wraithModel;
     [SerializeField] private GameObject shieldModel;
     [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private GameObject losingCanvas;
     
     [SerializeField] private AbilityBar abilityBar;
     
@@ -33,7 +34,7 @@ public class TwinStickMovement : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletModel;
     [SerializeField] private float CurrentPlayerSpeed;
-    [SerializeField] private float pitchChangeSpeed = 15.0f;
+    [SerializeField] private float pitchChangeSpeed = 0.1f;
     
     private GameObject playerModel;
     private Renderer modelRenderer;
@@ -140,7 +141,8 @@ public class TwinStickMovement : MonoBehaviour
         shootingCooldown -= Time.deltaTime;
         abilityCooldown -= Time.deltaTime;
         abilityBar.SetProgress(ABILITY_COOLDOWN - abilityCooldown);
-        
+
+        GetPlayerSpeed(); 
         // Adjust audio pitch based on player speed
         AdjustAudioPitch(CurrentPlayerSpeed);
         
@@ -149,7 +151,6 @@ public class TwinStickMovement : MonoBehaviour
         HandleMovement();
         HandleRotation();
         HandleShooting();
-        GetPlayerSpeed();
         HandleAbility();
     }
 
@@ -277,8 +278,17 @@ public class TwinStickMovement : MonoBehaviour
 
             if (hasLivesLeft)
             {
+                SoundManager.soundManager.PlayExplosionSound();
                 Instantiate(explosionPrefab, transform.position, Quaternion.identity);
                 StartCoroutine(HandleHit());
+            }
+            if (!hasLivesLeft)
+            {
+                losingCanvas.SetActive(true);
+                StartCoroutine(GradualTimeScaleChange(0.1f, 1f, 1f));
+                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                SoundManager.soundManager.PlayExplosionSound();
+                playerModel.SetActive(false);
             }
         }
     }
@@ -334,5 +344,21 @@ public class TwinStickMovement : MonoBehaviour
         Physics.SyncTransforms();
 
         yield return null;
+    }
+    private IEnumerator GradualTimeScaleChange(float targetTimeScale, float duration, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        float currentTime = 0f;
+        float initialTimeScale = Time.timeScale;
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            Time.timeScale = Mathf.Lerp(initialTimeScale, targetTimeScale, currentTime / duration);
+            yield return null;
+        }
+
+        Time.timeScale = targetTimeScale; // Ensure that the target timescale is set precisely
     }
 }

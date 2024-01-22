@@ -69,4 +69,10 @@ public class GameLogic : MonoBehaviour
         
         return true;
     }
+    public void Restart()
+    {
+        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+    }
 }

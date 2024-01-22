@@ -91,10 +91,4 @@ public class PlayerLogic : MonoBehaviour
         Time.timeScale = targetTimeScale; // Ensure that the target timescale is set precisely
     }
 
-    public void Restart()
-    {
-        SceneManager.LoadScene(0);
-        SceneManager.LoadScene(1);
-        Time.timeScale = 1f;
-    }
 }
