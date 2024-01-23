@@ -14,7 +14,7 @@ public class TwinStickMovement : MonoBehaviour
         Invincible
     }
     
-    public Class playerClass;
+    public static Class playerClass;
 
     [SerializeField] private GameObject assaultModel;
     [SerializeField] private GameObject tankModel;
@@ -76,6 +76,10 @@ public class TwinStickMovement : MonoBehaviour
     private static readonly WaitForSeconds waitForInvinibilityTime = new WaitForSeconds(INVINCIBILITY_DURATION);
     private static readonly WaitForSeconds waitForBlinkingTime = new WaitForSeconds(BLINKING_DURATION);
     
+    public static void setPlayerClass(Class playerClass) {
+            TwinStickMovement.playerClass = playerClass;
+    }
+    
     private void Start()
     {
         cam = Camera.main;
@@ -89,7 +93,7 @@ public class TwinStickMovement : MonoBehaviour
 
         cam = Camera.main;
 
-        playerClass = new Assault();
+        if (playerClass == null) playerClass = new Assault();
         playerSpeed = playerClass.movementSpeed;
         SHOOTING_COOLDOWN = playerClass.shootingCooldown;
         ABILITY_COOLDOWN = playerClass.ability.cooldown;
