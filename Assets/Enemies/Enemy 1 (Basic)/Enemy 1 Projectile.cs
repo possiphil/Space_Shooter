@@ -54,7 +54,7 @@ public class Enemy1Projectile : MonoBehaviour
           
           if (distance < DistanceToShoot)
           {
-            Debug.Log("Shooting!");
+              //  Debug.Log("Shooting!");
               Instantiate(projectilePrefab, transform.position, Quaternion.identity);
           }
       }

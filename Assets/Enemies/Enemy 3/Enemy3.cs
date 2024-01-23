@@ -33,7 +33,7 @@ public class Enemy3 : MonoBehaviour
    //Movement
    private Vector3 movement;
    //Health
-   private int Health = 5;
+   private int Health = 8;
    private int currentHealth;
 
  

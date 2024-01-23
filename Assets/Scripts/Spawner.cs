@@ -1,97 +1,109 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.UI;
+using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
+using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;
-    public Transform playerTransform;
-    public float tutorialspawnDelay;
-    public float gameSpawnDelay;
-    private float minSpawnDistance;
-    private float maxSpawnDisatnce;
-    private float difficultyIncreaseInterval;
+    [SerializeField] private GameObject Asteroid;
+    [SerializeField] private GameObject Enemy1;
+    [SerializeField] private GameObject Enemy2;
+    [SerializeField] private GameObject Enemy3;
 
-    private bool isTutorialComplete = false;
-    private int currentLevel = 1;
+    [SerializeField] private float AsteroidSpawnHeight;
 
+    private GameObject player;
     private void Start()
     {
-        GetReferences();
-        StartTutorial();
+        player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(SpawnWaves());
     }
 
-    private void GetReferences()
+    private IEnumerator SpawnWaves()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerTransform = player.transform;
+        // Wave 1
+        int AsteroidAnzahlWave1 = 3;
+        int Enemy1Anzahl = 1;
+       
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave1);
+        SpawnEnemy1(Enemy1Anzahl);
+        
+        // Wait for all enemies from Wave1 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0);
+
+        // Wave 2
+        int AsteroidAnzahlWave2 = 5;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave2);
     }
 
-    private void StartTutorial()
+    private void SpawnAsteroids(GameObject enemyPrefab, int waveSize)
     {
-        StartCoroutine(SpawnTutorialEnemies());
-    }
-
-    void StartGame()
-    {
-        StartCoroutine(SpawnGameEnemies());
-        StartCoroutine(IncreaseDifficulty());
-    }
-
-    IEnumerator SpawnTutorialEnemies()
-    {
-            int numEnemies = currentLevel;
-            for (int i = 0; i < enemyPrefabs.Length; i++)
-            {
-                GameObject newEnemy = SpawnEnemy(enemyPrefabs[i]);
-                
-                yield return new WaitUntil(() => newEnemy == null || !newEnemy.activeSelf);
-            }
-
-            isTutorialComplete = true;
-            StartGame();
-    }
-
-    private GameObject SpawnEnemy(GameObject enemyPrefab)
-    {
-        throw new NotImplementedException();
-    }
-
-    private GameObject SpawnEnemy(GameObject enemyPrefab, float spawnDelay)
-    {
-        float yoffset = 4f;
-        Vector3 spawnPosition = new Vector3(playerTransform.position.x, playerTransform.position.y + yoffset, 0f);
-        GameObject enemy = Instantiate(enemyPrefab, spawnPosition, Quaternion.identity);
-
-        return enemy;
-    }
-
-    private IEnumerator IncreaseDifficulty()
-    {
-        while (true)
+        for (int j = 0; j < waveSize; j++)
         {
-            yield return new WaitForSeconds(difficultyIncreaseInterval);
-
-            currentLevel++;
+            float randomXOffset = Random.Range(-17f, 17f);
+            Vector3 SpawnPoint = new Vector3(player.transform.position.x + randomXOffset, AsteroidSpawnHeight, player.transform.position.z);
+            Instantiate(enemyPrefab, SpawnPoint, Quaternion.identity);
+            
         }
     }
 
-    IEnumerator SpawnGameEnemies()
+    private void SpawnEnemy1(int waveSize)
     {
-        int numEnemies = currentLevel;
-
-        for (int i = 0; i < numEnemies; i++)
+        for (int i = 0; i < waveSize; i++)
         {
-            GameObject newEnemy = SpawnEnemy(enemyPrefabs[Random.Range(0, enemyPrefabs.Length)], gameSpawnDelay);
-            yield return new WaitUntil(() => newEnemy == null || !newEnemy.activeSelf);
+            Vector3 spawnOffset = GetRandomSpawnOffset();
+            Vector3 spawnPosition = player.transform.position + spawnOffset;
 
-            yield return new WaitForSeconds(gameSpawnDelay);
+            Instantiate(Enemy1, spawnPosition, Quaternion.identity);
         }
-
-        yield return null; 
     }
-    
+
+    private void SpawnEnemy2(int waveSize)
+    {
+        for (int i = 0; i < waveSize; i++)
+        {
+            float randomXOffset = Random.Range(-17f, 17f);
+            Vector3 SpawnPoint = new Vector3(player.transform.position.x + randomXOffset, AsteroidSpawnHeight, player.transform.position.z);
+            Instantiate(Enemy2, SpawnPoint, Quaternion.identity);
+        }
+    }
+
+    private void SpawnEnemy3(int waveSize)
+    {
+
+        float minDistance = 5f;
+        float maxdistance = 15f;
+        
+        for (int i = 0; i < waveSize; i++)
+        {
+            float randomXOffset = Random.Range(-17f, 17f);
+            Vector3 SpawnPoint = new Vector3(player.transform.position.x + randomXOffset, AsteroidSpawnHeight, player.transform.position.z);
+            Instantiate(Enemy3, SpawnPoint, Quaternion.identity);
+        }
+    }
+
+
+    private Vector3 GetRandomSpawnOffset()
+    {
+        float SpawnDistance = 20f;
+
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+
+        Vector3 spawnOffset = new Vector3(randomDirection.x, 0f, randomDirection.y) * SpawnDistance;
+        return spawnOffset;
+    }
+
+    private Vector3 GetRandomSpawnOffsetForEnemy3()
+    {
+        float spawnAngel = Random.Range(0f, 360f);
+        Vector2 randomDirection = new Vector2(Mathf.Cos(spawnAngel * Mathf.Deg2Rad), Mathf.Sin(spawnAngel * Mathf.Rad2Deg));
+        return new Vector3(randomDirection.x, 0f, randomDirection.y);
+    }
 }

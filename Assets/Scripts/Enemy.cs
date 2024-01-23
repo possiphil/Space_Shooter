@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class Enemy : MonoBehaviour
     private float speed;
     private Vector3 rotationSpeed;
     private float scale;
+    private float LiveTime = 20f;
 
     public void SetSpeedAndPosition()
     {
@@ -41,6 +44,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         Move();
+        DestroyAfterDelay();
     }
 
     private void Move()
@@ -56,11 +60,24 @@ public class Enemy : MonoBehaviour
 
         transform.localScale = Vector3.one * scale;
 
-        if (transform.position.y <= -5f)
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PlayerProjectile"))
         {
-            SetSpeedAndPosition();
+            Destroy(gameObject);
         }
     }
-    
-    
+
+    private void DestroyAfterDelay()
+    {
+        Invoke("DestroyAsteroid", LiveTime);
+    }
+
+    private void DestroyAsteroid()
+    {
+        Destroy(gameObject);
+    }
 }
