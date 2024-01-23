@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Enemy1Laser : MonoBehaviour
 {
     [SerializeField] private Rigidbody rb;
 
     [SerializeField] private float moveSpeed = 7f;
-    [SerializeField] private PlayerLogic target;
+    [SerializeField] private GameObject target;
 
     [SerializeField] private float destroyAfterSeconds;
 
@@ -33,7 +33,7 @@ public class NewBehaviourScript : MonoBehaviour
 
 
         rb = GetComponent<Rigidbody>();
-        target = FindObjectOfType<PlayerLogic>();
+        target = GameObject.FindGameObjectWithTag("Player");
 
         if (target != null)
         {

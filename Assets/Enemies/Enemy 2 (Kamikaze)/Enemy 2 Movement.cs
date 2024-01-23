@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector2 = UnityEngine.Vector2;
@@ -17,9 +18,11 @@ public class Enemy2Movement : MonoBehaviour
     private Rigidbody rb;
     public Transform player;
     private Vector3 movement;
+    
 
     [SerializeField] private int Health = 5;
     private int currentHealth;
+    
 
     private void Start()
     {
@@ -47,8 +50,9 @@ public class Enemy2Movement : MonoBehaviour
 
        
         rb.MoveRotation(rotation);
-        
-        
+        PlayerToFarAway();
+
+
     }
 
     private void FixedUpdate()
@@ -70,6 +74,20 @@ public class Enemy2Movement : MonoBehaviour
         rb.MovePosition(transform.position + (enemy2speed * Time.deltaTime * direction));
     }
 
+    private void PlayerToFarAway()
+    {
+        float DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (DistanceToPlayer> 15f)
+        {
+            enemy2speed = 100;
+        }
+        else
+        {
+            enemy2speed = 3;
+        }
+      
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("PlayerProjectile"))
@@ -89,6 +107,7 @@ public class Enemy2Movement : MonoBehaviour
 
     private void DestroyEnemy()
     {
+        Instantiate(explosionEnemy2, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

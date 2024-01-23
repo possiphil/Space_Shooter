@@ -47,7 +47,7 @@ public class Enemy1Movement : MonoBehaviour
    {
        if ((Player.position - transform.position).magnitude <= StopDistance)
        {
-           moveSpeed = 0;
+           moveSpeed = 1;
          
        }
        else
