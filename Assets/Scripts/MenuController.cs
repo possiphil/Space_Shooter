@@ -130,4 +130,20 @@ public class MenuController : MonoBehaviour
         yield return new WaitForSeconds(2);
         confirmationPrompt.SetActive(false);
     }
+
+     public void SelectWraith()
+    {
+        TwinStickMovement.setPlayerClass(new Wraith());
+    }
+
+    public void SelectAssault()
+    {
+        Class assaultClass = new Assault();
+        TwinStickMovement.setPlayerClass(new Assault());
+    }
+
+    public void SelectTank()
+    {
+        TwinStickMovement.setPlayerClass(new Tank());
+    }
 }
