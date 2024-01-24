@@ -61,13 +61,13 @@ public class GameLogic : MonoBehaviour
     {
         score += 100;
         
-        if (score == 5000)
-        {
-            SceneManager.LoadScene(2);
+       // if (score == 5000)
+        //{
+          //  SceneManager.LoadScene(2);
             return false;
-        }
+        //}
         
-        return true;
+        //return true;
     }
     public void Restart()
     {

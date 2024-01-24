@@ -34,7 +34,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponent<Enemy>().SetSpeedAndPosition();
+        //other.GetComponent<Enemy>().SetSpeedAndPosition();
         
         bool isMissingScore = GameLogic.HandleScoreIncrease();
 

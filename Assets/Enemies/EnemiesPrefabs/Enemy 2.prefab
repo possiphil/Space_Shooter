@@ -47,11 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3c8fe8e2ebd8e64792cdacddf88e9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy2speed: 3
+  enemy2speed: 3.5
   distanceToExplode: 1
   explosionEnemy2: {fileID: 25395172098757518, guid: f9ed277ad87018143b7284b9921fe88f, type: 3}
   player: {fileID: 0}
-  Health: 3
+  Health: 4
 --- !u!54 &540341303311744533
 Rigidbody:
   m_ObjectHideFlags: 0
