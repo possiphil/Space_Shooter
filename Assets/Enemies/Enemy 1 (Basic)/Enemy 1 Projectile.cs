@@ -40,7 +40,7 @@ public class Enemy1Projectile : MonoBehaviour
 
       if (timer >= interval)
       {
-          Debug.Log("shooting");
+          //Debug.Log("shooting");
           Shoot();
           timer = 0;
       }

@@ -19,7 +19,7 @@ public class GameLogic : MonoBehaviour
 
     private void Start()
     {
-        SpawnAsteroids();
+        //SpawnAsteroids();
     }
 
     private void Update()
@@ -34,14 +34,14 @@ public class GameLogic : MonoBehaviour
         score = 0;
     }
     
-    private void SpawnAsteroids()
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            var position = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), 1, 0));
-            Instantiate(asteroid, position, Quaternion.identity);
-        }
-    }
+    //private void SpawnAsteroids()
+  //  {
+    //    for (int i = 0; i < 5; i++)
+      //  {
+        //    var position = Camera.main.ViewportToWorldPoint(new Vector3(Random.Range(0f, 1f), 1, 0));
+           // Instantiate(asteroid, position, Quaternion.identity);
+        //}
+    //}
 
 
     public static bool HandleLiveDecrease()

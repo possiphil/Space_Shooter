@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   currentHealth: 0
-  explosion: {fileID: 25395172098757518, guid: f9ed277ad87018143b7284b9921fe88f, type: 3}
+  explosion: {fileID: 2802690972151209964, guid: 2c384a165ba3c3541af2b1080991be31, type: 3}
 --- !u!135 &5278539110418910096
 SphereCollider:
   m_ObjectHideFlags: 0

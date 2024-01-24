@@ -20,6 +20,7 @@ public class Enemy3 : MonoBehaviour
    //Components
    private Transform player;
    private Rigidbody rb;
+   [SerializeField] private GameObject explosionEnemy3;
    //Shooring
    [SerializeField] private GameObject bigProjectilePrefab;
    [SerializeField] private GameObject smallProjectilePrefab;
@@ -210,6 +211,7 @@ public class Enemy3 : MonoBehaviour
 
    private void DestroyEnemy()
    {
+      Instantiate(explosionEnemy3, transform.position, Quaternion.identity);
       Destroy(gameObject);
       SoundManager.soundManager.PlayExplosionSound();
    }

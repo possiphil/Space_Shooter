@@ -209,6 +209,7 @@ MonoBehaviour:
   timeAtFarAwayPosition: 5
   numberOfBlinks: 3
   timeBetweenBlinks: 0.5
+  explosionEnemy3: {fileID: 1884576326925622506, guid: d58172279d847f840b671cb2bb615768, type: 3}
   bigProjectilePrefab: {fileID: 2625054317103252759, guid: 323f88391bb8d904ea47c822e005e839, type: 3}
   smallProjectilePrefab: {fileID: 7459838513894876819, guid: 5dfe75ae54413b3418d189b258177fd2, type: 3}
   interval: 5
