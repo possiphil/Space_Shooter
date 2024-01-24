@@ -58,6 +58,7 @@
     <Compile Include="Assets\Scripts\Classes\Class.cs" />
     <Compile Include="Assets\Scripts\Abilities\Shield.cs" />
     <Compile Include="Assets\Scripts\Classes\Wraith.cs" />
+    <Compile Include="Assets\Scripts\ShowcaseModel.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Enemies\Enemy 1 (Basic)\Enemy 1 Laser.cs" />
     <Compile Include="Assets\Scripts\GameEnd.cs" />

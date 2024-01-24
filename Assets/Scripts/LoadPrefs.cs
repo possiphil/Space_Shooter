@@ -19,6 +19,8 @@ public class LoadPrefs : MonoBehaviour
 
 
 
+
+
     private void Awake()
     {
         if (canUse)
@@ -40,5 +42,38 @@ public class LoadPrefs : MonoBehaviour
             
         }
         
+    }
+
+     private void LoadPlayerClass()
+    {
+        // Check if PlayerPrefs has the saved player class
+        if (PlayerPrefs.HasKey("playerClass"))
+        {
+            // Retrieve the saved player class name
+            string className = PlayerPrefs.GetString("playerClass");
+
+            // Create an instance of the player class based on the class name
+            Class loadedClass = CreateClassInstance(className);
+
+            // Set the loaded player class in TwinStickMovement
+            TwinStickMovement.setPlayerClass(loadedClass);
+        }
+    }
+
+    private Class CreateClassInstance(string className)
+    {
+        // Add conditions to check for different class names and instantiate the corresponding class
+        switch (className)
+        {
+            case "Wraith":
+                return new Wraith();
+            case "Assault":
+                return new Assault();
+            case "Tank":
+                return new Tank();
+            default:
+                // Default to a specific class if the saved class name is not recognized
+                return new Assault();
+        }
     }
 }

@@ -131,19 +131,28 @@ public class MenuController : MonoBehaviour
         confirmationPrompt.SetActive(false);
     }
 
-     public void SelectWraith()
+   public void SelectWraith()
     {
         TwinStickMovement.setPlayerClass(new Wraith());
+        SavePlayerClass("Wraith");
     }
 
     public void SelectAssault()
     {
-        Class assaultClass = new Assault();
         TwinStickMovement.setPlayerClass(new Assault());
+        SavePlayerClass("Assault");
     }
 
     public void SelectTank()
     {
         TwinStickMovement.setPlayerClass(new Tank());
+        SavePlayerClass("Tank");
+    }
+
+    private void SavePlayerClass(string className)
+    {
+        // Save the selected player class name in PlayerPrefs
+        PlayerPrefs.SetString("playerClass", className);
+        PlayerPrefs.Save(); // Save PlayerPrefs immediately to ensure changes are stored
     }
 }
