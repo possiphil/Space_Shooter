@@ -144,11 +144,12 @@ public class Enemy3 : MonoBehaviour
          if (i == 0 || i == 3)
          {
             Instantiate(bigProjectilePrefab, cannons[i].position, cannons[i].rotation);
+            SoundManager.soundManager.PlayEnemy2FiringSound();
          }
          else if (i == 1 || i == 2)
          {
             Instantiate(smallProjectilePrefab, cannons[i].position, cannons[i].rotation);
-         
+            SoundManager.soundManager.PlayEnemy2FiringSound();
          }
         
       }

@@ -43,6 +43,7 @@ public class Enemy1Projectile : MonoBehaviour
           //Debug.Log("shooting");
           Shoot();
           timer = 0;
+          SoundManager.soundManager.PlayEnemy1FiringSound();
       }
   }
 
