@@ -109,6 +109,7 @@ public class Enemy2Movement : MonoBehaviour
     {
         Instantiate(explosionEnemy2, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        SoundManager.soundManager.PlayExplosionSound();
     }
 }
 

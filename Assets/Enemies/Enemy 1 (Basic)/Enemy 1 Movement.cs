@@ -15,7 +15,9 @@ public class Enemy1Movement : MonoBehaviour
 
    [SerializeField] private float moveSpeed = 2f;
    [SerializeField] private float StopDistance = 3f;
-
+   [SerializeField] private float farAwayDistance = 30f;
+   [SerializeField] private float farAwaySpeed = 100f;
+   
   
 
    private void Start()
@@ -40,19 +42,29 @@ public class Enemy1Movement : MonoBehaviour
 
        
        rb.MoveRotation(rotation);
+       PlayerToFarAway();
       
    }
 
    private void FixedUpdate()
    {
-       if ((Player.position - transform.position).magnitude <= StopDistance)
+       float distanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
+
+       if (distanceToPlayer <= StopDistance)
        {
-           moveSpeed = 1;
-         
+           moveSpeed = 0;
        }
        else
        {
-           moveSpeed = 4;
+           if (distanceToPlayer > farAwayDistance)
+           {
+               moveSpeed = farAwaySpeed;
+           }
+           else
+           {
+               moveSpeed = 2;
+           }
+
            moveEnemy(movement);
        }
    }
@@ -62,5 +74,18 @@ public class Enemy1Movement : MonoBehaviour
 
        rb.MovePosition(transform.position + (moveSpeed * Time.deltaTime * direction));
        
+   }
+
+   private void PlayerToFarAway()
+   {
+       float DistanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
+       if (DistanceToPlayer > 15f)
+       {
+           moveSpeed = farAwaySpeed;
+       }
+       else
+       {
+           moveSpeed = 2;
+       }
    }
 }

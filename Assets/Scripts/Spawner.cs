@@ -238,43 +238,69 @@ public class Spawner : MonoBehaviour
 
     private void SpawnEnemy1(int waveSize)
     {
+        float minDistance = 10f;
+        float maxdistance = 20f;
+        
         for (int i = 0; i < waveSize; i++)
         {
-            Vector3 spawnOffset = GetRandomSpawnOffset();
-            Vector3 spawnPosition = player.transform.position + spawnOffset;
-            spawnPosition.z = 0f;
+            float randomAngle = Random.Range(0f, 2f * Mathf.PI);
+            float randomDistance = Random.Range(minDistance, maxdistance);
+            
+            float spawnX = transform.position.x + randomDistance * Mathf.Cos(randomAngle);
+            float spawnZ = 0f;
+            float spawnY = transform.position.y + randomDistance * Mathf.Tan(randomAngle);
+
+            Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+            
             Instantiate(Enemy1, spawnPosition, Quaternion.identity);
         }
     }
 
     private void SpawnEnemy2(int waveSize)
     {
+        float minDistance = 10f;
+        float maxdistance = 20f;
+        
         for (int i = 0; i < waveSize; i++)
         {
-            float randomXOffset = Random.Range(-17f, 17f);
-            Vector3 SpawnPoint = new Vector3(player.transform.position.x + randomXOffset, AsteroidSpawnHeight, 0f);
-            Instantiate(Enemy2, SpawnPoint, Quaternion.identity);
+            float randomAngle = Random.Range(0f, 2f * Mathf.PI);
+            float randomDistance = Random.Range(minDistance, maxdistance);
+            
+            float spawnX = transform.position.x + randomDistance * Mathf.Cos(randomAngle);
+            float spawnZ = 0f;
+            float spawnY = transform.position.y + randomDistance * Mathf.Tan(randomAngle);
+
+            Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+            
+            Instantiate(Enemy2, spawnPosition, Quaternion.identity);
         }
     }
 
     private void SpawnEnemy3(int waveSize)
     {
 
-        //float minDistance = 5f;
-       // float maxdistance = 15f;
+        float minDistance = 10f;
+        float maxdistance = 15f;
         
         for (int i = 0; i < waveSize; i++)
         {
-            float randomXOffset = Random.Range(-17f, 17f);
-            Vector3 SpawnPoint = new Vector3(player.transform.position.x + randomXOffset, AsteroidSpawnHeight, 0f);
-            Instantiate(Enemy3, SpawnPoint, Quaternion.identity);
+            float randomAngle = Random.Range(0f, 2f * Mathf.PI);
+            float randomDistance = Random.Range(minDistance, maxdistance);
+            
+            float spawnX = transform.position.x + randomDistance * Mathf.Cos(randomAngle);
+            float spawnZ = 0f;
+            float spawnY = transform.position.y + randomDistance * Mathf.Tan(randomAngle);
+
+            Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
+            
+            Instantiate(Enemy3, spawnPosition, Quaternion.identity);
         }
     }
 
 
     private Vector3 GetRandomSpawnOffset()
     {
-        float SpawnDistance = 20f;
+        float SpawnDistance = 30f;
 
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
 

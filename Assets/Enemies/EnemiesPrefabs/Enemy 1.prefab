@@ -79,6 +79,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   moveSpeed: 3
   StopDistance: 7
+  farAwayDistance: 10
+  farAwaySpeed: 100
 --- !u!114 &7569394532448267884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +98,7 @@ MonoBehaviour:
   DistanceToShoot: 15
   playerTag: Player
   enemyTag: Enemy
-  projectilePrefab: {fileID: 7174385281365869002, guid: a9eef1bb6b11aa34fb97d22e475b20b8, type: 3}
+  projectilePrefab: {fileID: 641524073854283301, guid: 70e8a1ed874bb0e409d346e0b5d866c2, type: 3}
 --- !u!114 &921560433936906932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
+  currentHealth: 0
   explosion: {fileID: 25395172098757518, guid: f9ed277ad87018143b7284b9921fe88f, type: 3}
 --- !u!135 &5278539110418910096
 SphereCollider:

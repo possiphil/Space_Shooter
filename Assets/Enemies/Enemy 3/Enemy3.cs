@@ -210,12 +210,8 @@ public class Enemy3 : MonoBehaviour
 
    private void DestroyEnemy()
    {
-      AudioSource audioSource = GetComponent<AudioSource>();
-      if (audioSource != null && audioSource.clip != null)
-      {
-         audioSource.Play();
-      }
       Destroy(gameObject);
+      SoundManager.soundManager.PlayExplosionSound();
    }
 
 }

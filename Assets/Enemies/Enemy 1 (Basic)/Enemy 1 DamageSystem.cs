@@ -6,12 +6,12 @@ using UnityEngine;
 public class Enemy1DamageSystem : MonoBehaviour
 {
   [SerializeField] private int maxHealth = 5;
-  private int currentHealth;
+  [SerializeField] private int currentHealth;
   [SerializeField] private GameObject explosion;
-
   private void Start()
   {
     currentHealth = maxHealth;
+    
   }
 
   private void OnTriggerEnter(Collider other)
@@ -32,8 +32,13 @@ public class Enemy1DamageSystem : MonoBehaviour
     }
   }
 
+ 
+
   private void DestroyEnemy()
   {
+   
     Destroy(gameObject);
+    SoundManager.soundManager.PlayExplosionSound();
   }
 }
+

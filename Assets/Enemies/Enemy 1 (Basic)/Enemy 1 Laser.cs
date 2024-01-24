@@ -13,11 +13,12 @@ public class Enemy1Laser : MonoBehaviour
 
     [SerializeField] private float destroyAfterSeconds;
 
-    private bool isDestroyed = false;
+//    private bool isDestroyed = false;
 
 
     private void Start()
     {
+        transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         ShootLaser();
     }
 
@@ -25,6 +26,7 @@ public class Enemy1Laser : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            //Debug.Log("hitPlayer");
             Destroy(gameObject);
         }
     }
@@ -55,12 +57,12 @@ public class Enemy1Laser : MonoBehaviour
 
     private void DestroyBullet()
     {
-        if (!isDestroyed)
-        {
-            isDestroyed = true;
+        //if (!isDestroyed)
+        //{
+          //  isDestroyed = true;
             
             Destroy(gameObject);
-        }
+        //}
       
     }
     
