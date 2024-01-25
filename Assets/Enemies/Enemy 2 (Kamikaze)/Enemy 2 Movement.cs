@@ -51,6 +51,7 @@ public class Enemy2Movement : MonoBehaviour
        
         rb.MoveRotation(rotation);
         PlayerToFarAway();
+        EnemyTooFarAway();
 
 
     }
@@ -110,6 +111,14 @@ public class Enemy2Movement : MonoBehaviour
         Instantiate(explosionEnemy2, transform.position, Quaternion.identity);
         Destroy(gameObject);
         SoundManager.soundManager.PlayExplosionSound();
+    }
+    private void EnemyTooFarAway()
+    {
+        float DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+        if (DistanceToPlayer > 1000f)
+        {
+            Destroy(gameObject);
+        }
     }
 }
 

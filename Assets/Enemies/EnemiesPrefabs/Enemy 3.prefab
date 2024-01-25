@@ -203,11 +203,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ce8c8c90e307f499e84c8839d8be8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.25
   explosionEnemy3: {fileID: 1884576326925622506, guid: d58172279d847f840b671cb2bb615768, type: 3}
   bigProjectilePrefab: {fileID: 2625054317103252759, guid: 323f88391bb8d904ea47c822e005e839, type: 3}
   smallProjectilePrefab: {fileID: 7459838513894876819, guid: 5dfe75ae54413b3418d189b258177fd2, type: 3}
-  interval: 3
+  interval: 5
   timer: 1
   enemy: {fileID: 8408931165174658747}
   cannons:

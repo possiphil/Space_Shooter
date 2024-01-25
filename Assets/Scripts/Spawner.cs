@@ -321,22 +321,202 @@ public class Spawner : MonoBehaviour
         SpawnEnemy2(Enemy2AnzahlWave25);
         SpawnEnemy3(Enemy3AnzahlWave25);
         
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave26 = 3;
+        int Enemy1AnzahlWave26 = 3;
+        int Enemy2AnzahlWave26 = 4;
+        int Enemy3AnzahlWave26 = 1;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave26);
+        SpawnEnemy1(Enemy1AnzahlWave26);
+        SpawnEnemy2(Enemy2AnzahlWave26);
+        SpawnEnemy3(Enemy3AnzahlWave26);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave27 = 3;
+        int Enemy1AnzahlWave27 = 3;
+        int Enemy2AnzahlWave27 = 4;
+        int Enemy3AnzahlWave27 = 2;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave27);
+        SpawnEnemy1(Enemy1AnzahlWave27);
+        SpawnEnemy2(Enemy2AnzahlWave27);
+        SpawnEnemy3(Enemy3AnzahlWave27);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave28 = 7;
+        int Enemy1AnzahlWave28 = 1;
+        int Enemy2AnzahlWave28 = 1;
+        int Enemy3AnzahlWave28 = 0;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave28);
+        SpawnEnemy1(Enemy1AnzahlWave28);
+        SpawnEnemy2(Enemy2AnzahlWave28);
+        SpawnEnemy3(Enemy3AnzahlWave28);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave29 = 5;
+        int Enemy1AnzahlWave29 = 0;
+        int Enemy2AnzahlWave29 = 2;
+        int Enemy3AnzahlWave29 = 2;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave29);
+        SpawnEnemy1(Enemy1AnzahlWave29);
+        SpawnEnemy2(Enemy2AnzahlWave29);
+        SpawnEnemy3(Enemy3AnzahlWave29);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave30 = 2;
+        int Enemy1AnzahlWave30 = 2;
+        int Enemy2AnzahlWave30 = 2;
+        int Enemy3AnzahlWave30 = 2;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave30);
+        SpawnEnemy1(Enemy1AnzahlWave30);
+        SpawnEnemy2(Enemy2AnzahlWave30);
+        SpawnEnemy3(Enemy3AnzahlWave30);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave31 = 2;
+        int Enemy1AnzahlWave31 = 2;
+        int Enemy2AnzahlWave31 = 5;
+        int Enemy3AnzahlWave31 = 2;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave31);
+        SpawnEnemy1(Enemy1AnzahlWave31);
+        SpawnEnemy2(Enemy2AnzahlWave31);
+        SpawnEnemy3(Enemy3AnzahlWave31);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave32 = 2;
+        int Enemy1AnzahlWave32 = 2;
+        int Enemy2AnzahlWave32 = 5;
+        int Enemy3AnzahlWave32 = 3;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave32);
+        SpawnEnemy1(Enemy1AnzahlWave32);
+        SpawnEnemy2(Enemy2AnzahlWave32);
+        SpawnEnemy3(Enemy3AnzahlWave32);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave33 = 9;
+        int Enemy1AnzahlWave33 = 2;
+        int Enemy2AnzahlWave33 = 5;
+        int Enemy3AnzahlWave33 = 1;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave33);
+        SpawnEnemy1(Enemy1AnzahlWave33);
+        SpawnEnemy2(Enemy2AnzahlWave33);
+        SpawnEnemy3(Enemy3AnzahlWave33);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave34 = 9;
+        int Enemy1AnzahlWave34 = 4;
+        int Enemy2AnzahlWave34 = 1;
+        int Enemy3AnzahlWave34 = 2;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave34);
+        SpawnEnemy1(Enemy1AnzahlWave34);
+        SpawnEnemy2(Enemy2AnzahlWave34);
+        SpawnEnemy3(Enemy3AnzahlWave34);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave35 = 9;
+        int Enemy1AnzahlWave35 = 5;
+        int Enemy2AnzahlWave35 = 0;
+        int Enemy3AnzahlWave35 = 0;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave35);
+        SpawnEnemy1(Enemy1AnzahlWave35);
+        SpawnEnemy2(Enemy2AnzahlWave35);
+        SpawnEnemy3(Enemy3AnzahlWave35);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave36 = 0;
+        int Enemy1AnzahlWave36 = 0;
+        int Enemy2AnzahlWave36 = 0;
+        int Enemy3AnzahlWave36 = 3;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave36);
+        SpawnEnemy1(Enemy1AnzahlWave36);
+        SpawnEnemy2(Enemy2AnzahlWave36);
+        SpawnEnemy3(Enemy3AnzahlWave36);
+  
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave37 = 0;
+        int Enemy1AnzahlWave37 = 0;
+        int Enemy2AnzahlWave37 = 4;
+        int Enemy3AnzahlWave37 = 0;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave37);
+        SpawnEnemy1(Enemy1AnzahlWave37);
+        SpawnEnemy2(Enemy2AnzahlWave37);
+        SpawnEnemy3(Enemy3AnzahlWave37);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave38 = 15;
+        int Enemy1AnzahlWave38 = 0;
+        int Enemy2AnzahlWave38 = 1;
+        int Enemy3AnzahlWave38 = 0;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave38);
+        SpawnEnemy1(Enemy1AnzahlWave38);
+        SpawnEnemy2(Enemy2AnzahlWave38);
+        SpawnEnemy3(Enemy3AnzahlWave38);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave39 = 15;
+        int Enemy1AnzahlWave39 = 4;
+        int Enemy2AnzahlWave39 = 1;
+        int Enemy3AnzahlWave39 = 1;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave39);
+        SpawnEnemy1(Enemy1AnzahlWave39);
+        SpawnEnemy2(Enemy2AnzahlWave39);
+        SpawnEnemy3(Enemy3AnzahlWave39);
+        
+        // Wait for all enemies from Wave25 to be destroyed
+        yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
+        
+        int AsteroidAnzahlWave40 = 1;
+        int Enemy1AnzahlWave40 = 1;
+        int Enemy2AnzahlWave40 = 1;
+        int Enemy3AnzahlWave40 = 1;
+        SpawnAsteroids(Asteroid, AsteroidAnzahlWave39);
+        SpawnEnemy1(Enemy1AnzahlWave39);
+        SpawnEnemy2(Enemy2AnzahlWave39);
+        SpawnEnemy3(Enemy3AnzahlWave39);
+
         for (int i = 0; i < highNumber; i++)
         {
             // Wait for all enemies from the previous wave to be destroyed
             yield return new WaitUntil(() => GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && GameObject.FindGameObjectsWithTag("Enemy2").Length == 0);
 
             // Increase the number of enemies to spawn in each wave
-            AsteroidAnzahlWave25 += i;
-            Enemy1AnzahlWave25 += i;
-            Enemy2AnzahlWave25 += i;
-            Enemy3AnzahlWave25 += i;
+            AsteroidAnzahlWave40 += i;
+            Enemy1AnzahlWave40 += i;
+            Enemy2AnzahlWave40 += i;
+            Enemy3AnzahlWave40 += i;
 
             // Spawn enemies for the current wave
-            SpawnAsteroids(Asteroid, AsteroidAnzahlWave25);
-            SpawnEnemy1(Enemy1AnzahlWave25);
-            SpawnEnemy2(Enemy2AnzahlWave25);
-            SpawnEnemy3(Enemy3AnzahlWave25);
+            SpawnAsteroids(Asteroid, AsteroidAnzahlWave40);
+            SpawnEnemy1(Enemy1AnzahlWave40);
+            SpawnEnemy2(Enemy2AnzahlWave40);
+            SpawnEnemy3(Enemy3AnzahlWave40);
         }
 
        
@@ -365,9 +545,12 @@ public class Spawner : MonoBehaviour
             float randomAngle = Random.Range(0f, 2f * Mathf.PI);
             float randomDistance = Random.Range(minDistance, maxdistance);
             
-            float spawnX = transform.position.x + randomDistance * Mathf.Cos(randomAngle);
+            float playerX = transform.position.x;
+            float playerY = transform.position.y;
+            
+            float spawnX = playerX + randomDistance * Mathf.Cos(randomAngle);
             float spawnZ = 0f;
-            float spawnY = transform.position.y + randomDistance * Mathf.Tan(randomAngle);
+            float spawnY = playerY + randomDistance * Mathf.Sin(randomAngle);
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
             
@@ -385,9 +568,12 @@ public class Spawner : MonoBehaviour
             float randomAngle = Random.Range(0f, 2f * Mathf.PI);
             float randomDistance = Random.Range(minDistance, maxdistance);
             
-            float spawnX = transform.position.x + randomDistance * Mathf.Cos(randomAngle);
+            float playerX = transform.position.x;
+            float playerY = transform.position.y;
+            
+            float spawnX = playerX + randomDistance * Mathf.Cos(randomAngle);
             float spawnZ = 0f;
-            float spawnY = transform.position.y + randomDistance * Mathf.Tan(randomAngle);
+            float spawnY = playerY + randomDistance * Mathf.Sin(randomAngle);
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
             
@@ -405,10 +591,13 @@ public class Spawner : MonoBehaviour
         {
             float randomAngle = Random.Range(0f, 2f * Mathf.PI);
             float randomDistance = Random.Range(minDistance, maxdistance);
+
+            float playerX = transform.position.x;
+            float playerY = transform.position.y;
             
-            float spawnX = transform.position.x + randomDistance * Mathf.Cos(randomAngle);
+            float spawnX = playerX + randomDistance * Mathf.Cos(randomAngle);
             float spawnZ = 0f;
-            float spawnY = transform.position.y + randomDistance * Mathf.Tan(randomAngle);
+            float spawnY = playerY + randomDistance * Mathf.Sin(randomAngle);
 
             Vector3 spawnPosition = new Vector3(spawnX, spawnY, spawnZ);
             

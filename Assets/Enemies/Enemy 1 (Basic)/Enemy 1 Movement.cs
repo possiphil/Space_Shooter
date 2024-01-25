@@ -43,6 +43,7 @@ public class Enemy1Movement : MonoBehaviour
        
        rb.MoveRotation(rotation);
        PlayerToFarAway();
+       EnemyTooFarAway();
       
    }
 
@@ -86,6 +87,15 @@ public class Enemy1Movement : MonoBehaviour
        else
        {
            moveSpeed = 2;
+       }
+   }
+
+   private void EnemyTooFarAway()
+   {
+       float DistanceToPlayer = Vector3.Distance(transform.position, Player.transform.position);
+       if (DistanceToPlayer > 1000f)
+       {
+           Destroy(gameObject);
        }
    }
 }

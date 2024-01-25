@@ -46,7 +46,7 @@ public class Enemy3 : MonoBehaviour
          Shoot();
          timer = 0f;
       }
-     
+      EnemyTooFarAway();
    }
    private void GetNeededComponents()
    {
@@ -139,5 +139,12 @@ public class Enemy3 : MonoBehaviour
       Destroy(gameObject);
       SoundManager.soundManager.PlayExplosionSound();
    }
-
+   private void EnemyTooFarAway()
+   {
+      float DistanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
+      if (DistanceToPlayer > 1000f)
+      {
+         Destroy(gameObject);
+      }
+   }
 }
