@@ -38,26 +38,29 @@ public class PlayerLogic : MonoBehaviour
     {
         Enemy collideWith = other.GetComponent<Enemy>();
         if (collideWith != null && playerState == PlayerState.Vulnerable)
+        
         {
-            other.GetComponent<Enemy>().SetSpeedAndPosition();
+                other.GetComponent<Enemy>().SetSpeedAndPosition();
 
-            bool hasLivesLeft = GameLogic.HandleLiveDecrease();
-            if (!hasLivesLeft)
-            {
-                losingCanvas.SetActive(true);
-                StartCoroutine(GradualTimeScaleChange(0.1f, 1f, 1f));
-                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                SoundManager.soundManager.PlayExplosionSound();
-                playerModel.SetActive(false);
-            }
+                bool hasLivesLeft = GameLogic.HandleLiveDecrease();
+                if (!hasLivesLeft)
+                {
+                    losingCanvas.SetActive(true);
+                    StartCoroutine(GradualTimeScaleChange(0.1f, 1f, 1f));
+                    Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                    SoundManager.soundManager.PlayExplosionSound();
+                    playerModel.SetActive(false);
+                }
 
-            if (hasLivesLeft)
-            {
-                Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-                SoundManager.soundManager.PlayExplosionSound();
-                StartCoroutine(HandleHit());
-            }
+                if (hasLivesLeft)
+                {
+
+                    Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+                    SoundManager.soundManager.PlayExplosionSound();
+                    StartCoroutine(HandleHit());
+                }
         }
+        
     }
     
     private IEnumerator HandleHit()
