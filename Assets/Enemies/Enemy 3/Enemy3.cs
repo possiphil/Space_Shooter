@@ -127,6 +127,7 @@ public class Enemy3 : MonoBehaviour
    }
    private void TakeDamage(int damage)
    {
+      SoundManager.soundManager.PlayHitMarkerSound();
       currentHealth -= damage;
       if (currentHealth <= 0)
       {
@@ -138,6 +139,7 @@ public class Enemy3 : MonoBehaviour
       Instantiate(explosionEnemy3, transform.position, Quaternion.identity);
       Destroy(gameObject);
       SoundManager.soundManager.PlayExplosionSound();
+      SoundManager.soundManager.PlayKillConfirmedSound();
    }
    private void EnemyTooFarAway()
    {

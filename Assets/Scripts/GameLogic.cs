@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class GameLogic : MonoBehaviour
     public static int score;
     public static int lives;
     [SerializeField] private GameObject losingCanvas;
+    [SerializeField] private GameObject escMenu;
 
     private void Start()
     {
@@ -26,6 +28,13 @@ public class GameLogic : MonoBehaviour
     {
         scoreUI.text = "Score: " + score;
         livesUI.text = "Lives: " + lives;
+
+         if (Input.GetKeyDown(KeyCode.Escape) || GetStartInput())
+        {
+            // Call a method to activate the menu
+            ActivateMenu();
+            AudioListener.volume = 0;
+        }
     }
 
     public static void SetLivesAndScore(float hp)
@@ -75,4 +84,32 @@ public class GameLogic : MonoBehaviour
         SceneManager.LoadScene(1);
         Time.timeScale = 1f;
     }
+    void ActivateMenu()
+    {
+        if (escMenu != null)
+        {
+            escMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Debug.LogWarning("ESC_Menu not assigned in the inspector!");
+        }
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        AudioListener.volume = 1;
+    }
+    public void ExitGame()
+    {
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+        AudioListener.volume = 1;
+    }
+     public static bool GetStartInput()
+    {
+        return TwinStickMovement.isUsingMenu;
+    }
+
 }

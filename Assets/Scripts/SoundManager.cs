@@ -12,8 +12,20 @@ public class SoundManager : MonoBehaviour
     private AudioSource firingAudioSource;
     private AudioSource enemy1AudioSource;
     private AudioSource enemy2AudioSource;
+    private AudioSource ability1AudioSource;
+    private AudioSource ability2AudioSource;
+    private AudioSource ability3AudioSource;
+    private AudioSource hitMarkerAudioSource;
+    private AudioSource killConfirmedAudioSource;
+
     private int randomIndex;
     [SerializeField] public AudioClip[] FiringSounds;
+    [SerializeField] public AudioClip ability1;
+    [SerializeField] public AudioClip ability2;
+    [SerializeField] public AudioClip ability3;
+    [SerializeField] public AudioClip hitMarker;
+    [SerializeField] public AudioClip killConfirmed;
+
 
 
 
@@ -24,6 +36,11 @@ void Start()
     firingAudioSource = gameObject.AddComponent<AudioSource>();
     enemy1AudioSource = gameObject.AddComponent<AudioSource>();
     enemy2AudioSource = gameObject.AddComponent<AudioSource>();
+    ability1AudioSource = gameObject.AddComponent<AudioSource>();
+    ability2AudioSource = gameObject.AddComponent<AudioSource>();
+    ability3AudioSource = gameObject.AddComponent<AudioSource>();
+    hitMarkerAudioSource = gameObject.AddComponent<AudioSource>();
+    killConfirmedAudioSource = gameObject.AddComponent<AudioSource>();
 }
 
 public void PlayExplosionSound()
@@ -58,6 +75,41 @@ public void PlayEnemy2FiringSound()
     enemy2AudioSource.volume = Random.Range(0.25f, 0.3f); //change Volume range of Firing Sound
     enemy2AudioSource.pitch = Random.Range(0.8f, 1.2f); //change pitch range of Firing Sound
     enemy2AudioSource.PlayOneShot(enemy2FiringSounds[randomIndex]);
+}
+public void PlayAbility1Sound()
+{
+
+    ability1AudioSource.volume = Random.Range(0.25f, 0.3f); //change Volume range of Firing Sound
+    ability1AudioSource.pitch = Random.Range(0.8f, 1.2f); //change pitch range of Firing Sound
+    ability1AudioSource.PlayOneShot(ability1);
+}
+public void PlayAbility2Sound()
+{
+
+    ability2AudioSource.volume = Random.Range(0.25f, 0.3f); //change Volume range of Firing Sound
+    ability2AudioSource.pitch = Random.Range(1f, 1f); //change pitch range of Firing Sound
+    ability2AudioSource.PlayOneShot(ability2);
+}
+public void PlayAbility3Sound()
+{
+
+    ability3AudioSource.volume = Random.Range(0.25f, 0.3f); //change Volume range of Firing Sound
+    ability3AudioSource.pitch = Random.Range(1f, 1f); //change pitch range of Firing Sound
+    ability3AudioSource.PlayOneShot(ability3);
+}
+public void PlayHitMarkerSound()
+{
+
+    hitMarkerAudioSource.volume = Random.Range(0.25f, 0.3f); //change Volume range of Firing Sound
+    hitMarkerAudioSource.pitch = Random.Range(0.8f, 1.2f); //change pitch range of Firing Sound
+    hitMarkerAudioSource.PlayOneShot(hitMarker);
+}
+public void PlayKillConfirmedSound()
+{
+
+    killConfirmedAudioSource.volume = Random.Range(0.4f, 0.5f); //change Volume range of Firing Sound
+    killConfirmedAudioSource.pitch = Random.Range(0.9f, 1.1f); //change pitch range of Firing Sound
+    killConfirmedAudioSource.PlayOneShot(killConfirmed);
 }
 
 }

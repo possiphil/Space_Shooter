@@ -24,6 +24,7 @@ public class Enemy1DamageSystem : MonoBehaviour
 
   private void TakeDamage(int damage)
   {
+    SoundManager.soundManager.PlayHitMarkerSound();
     currentHealth -= damage;
     if (currentHealth <= 0)
     {
@@ -39,6 +40,7 @@ public class Enemy1DamageSystem : MonoBehaviour
    
     Destroy(gameObject);
     SoundManager.soundManager.PlayExplosionSound();
+    SoundManager.soundManager.PlayKillConfirmedSound();
   }
 }
 

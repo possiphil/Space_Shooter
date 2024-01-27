@@ -65,6 +65,7 @@ public class TwinStickMovement : MonoBehaviour
     private bool isUsingAbility;
     private bool doesAbility;
     private bool isInvincible;
+    public static bool isUsingMenu;
     
     private PlayerControls playerControls;
     private PlayerInput playerInput;
@@ -169,6 +170,7 @@ public class TwinStickMovement : MonoBehaviour
         aim = playerControls.Controls.Aim.ReadValue<Vector2>();
         isShooting = playerControls.Controls.Shooting.ReadValue<float>() > 0.1f;
         isUsingAbility = playerControls.Controls.Ability.ReadValue<float>() > 0.1f;
+        isUsingMenu = playerControls.Controls.Menu.ReadValue<float>() > 0.1f;
     }
 
     private void HandleMovement()
@@ -224,13 +226,16 @@ public class TwinStickMovement : MonoBehaviour
         {
             if (playerClass.GetType() == typeof(Assault))
             {
+                SoundManager.soundManager.PlayAbility1Sound();
                 StartCoroutine(Dash());
             } else if (playerClass.GetType() == typeof(Tank))
             {
+                SoundManager.soundManager.PlayAbility2Sound();
                 StartCoroutine(Shield());
             }
             else
             {
+                SoundManager.soundManager.PlayAbility3Sound();
                 StartCoroutine(Teleport());
             }
             abilityCooldown = ABILITY_COOLDOWN;
@@ -365,4 +370,5 @@ public class TwinStickMovement : MonoBehaviour
 
         Time.timeScale = targetTimeScale; // Ensure that the target timescale is set precisely
     }
+   
 }
