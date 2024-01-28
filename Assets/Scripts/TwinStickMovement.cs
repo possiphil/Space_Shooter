@@ -217,6 +217,8 @@ public class TwinStickMovement : MonoBehaviour
             Instantiate(bulletModel, firePoint.position, firePoint.rotation);
             SoundManager.soundManager.PlayFiringSound();
             shootingCooldown = SHOOTING_COOLDOWN;
+
+            CinemachineShake.Instance.ShakeCamera(2f, .1f);
         }
     }
 
@@ -227,6 +229,7 @@ public class TwinStickMovement : MonoBehaviour
             if (playerClass.GetType() == typeof(Assault))
             {
                 SoundManager.soundManager.PlayAbility1Sound();
+                CinemachineShake.Instance.ShakeCamera(5f, .1f);
                 StartCoroutine(Dash());
             } else if (playerClass.GetType() == typeof(Tank))
             {
@@ -236,6 +239,7 @@ public class TwinStickMovement : MonoBehaviour
             else
             {
                 SoundManager.soundManager.PlayAbility3Sound();
+                CinemachineShake.Instance.ShakeCamera(5f, .1f);
                 StartCoroutine(Teleport());
             }
             abilityCooldown = ABILITY_COOLDOWN;
