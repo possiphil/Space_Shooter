@@ -283,9 +283,10 @@ public class TwinStickMovement : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Enemy collideWith = other.GetComponent<Enemy>();
-        if (collideWith != null && playerState == PlayerState.Vulnerable)
+        
+        if (playerState == PlayerState.Vulnerable)
         {
-            other.GetComponent<Enemy>().SetSpeedAndPosition();
+            if (collideWith != null) other.GetComponent<Enemy>().SetSpeedAndPosition();
 
             bool hasLivesLeft = GameLogic.HandleLiveDecrease();
 
